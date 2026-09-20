@@ -1,318 +1,219 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold: #c9a961;
-  --color-gold-soft: #c9a96126;
-  --color-cream: #ede0c8;
-  --color-cream-dim: #8b7d6b;
-  --color-danger: #a8424d;
-  --color-success: #5a8a4f;
+  /* Override Tailwind zinc colors to shades of black/obsidian for backgrounds */
+  --color-zinc-950: #09090b; /* pure obsidian black */
+  --color-zinc-900: #18181b; /* dark charcoal/obsidian */
+  --color-zinc-850: #202024; /* charcoal grey */
+  --color-zinc-800: #27272a; /* border charcoal */
+  --color-zinc-700: #3f3f46; /* medium grey */
+  --color-zinc-600: #52525b; /* grey */
+  --color-zinc-500: #71717a; /* light grey */
+  
+  /* Map accents to prestigious gold colors */
+  --color-amber-500: #d4af37; /* primary metallic gold */
+  --color-amber-400: #f3cd5c; /* lighter gold */
+  --color-amber-300: #fef08a; /* bright pale gold */
+  --color-rose-500: #c5a028; /* dark gold */
+  --color-rose-400: #d4af37;
+  --color-purple-600: #aa8418; /* darkest gold */
+  --color-purple-500: #c5a028;
+  
+  /* Map white to bright warm cream/white */
+  --color-white: #ffffff;
 }
 
-:root {
-  --color-bg: #0a0908;
-  --color-bg-2: #14110f;
-  --color-surface: #1a1612;
-  --color-surface-2: #221d18;
-  --color-border: #2a241d;
-  --color-gold: #c9a961;
-  --color-gold-light: #d4b878;
-  --color-cream: #f5e6d3;
-  --color-text: #ede0c8;
-  --color-text-dim: #8b7d6b;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
+/* Global resets and body styling - Black and Gold */
 body {
-  background:
-    radial-gradient(ellipse at top, rgba(26, 58, 42, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(107, 68, 35, 0.06) 0%, transparent 50%),
-    var(--color-bg);
-  min-height: 100vh;
+  background-color: #09090b !important; /* pure obsidian black background */
+  color: #f4f4f5 !important; /* crisp warm off-white text for ultimate readability */
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* Headings should be prestigious gold */
+h1, h2, h3, h4, h5, h6 {
+  color: #d4af37 !important; /* glowing metallic gold */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
 }
 
-.font-display {
-  font-family: 'Cormorant Garamond', serif;
-  letter-spacing: 0.01em;
+/* General body text and writeup colors */
+p, label, li, td, th {
+  color: #e4e4e7 !important; /* clean off-white writeup */
 }
 
-.font-italiana {
-  font-family: 'Italiana', serif;
-  letter-spacing: 0.08em;
+span {
+  color: #e4e4e7 !important;
 }
 
-.font-body {
-  font-family: 'Inter', sans-serif;
+/* Metadata and secondary text */
+.text-zinc-400, .text-zinc-500, .text-zinc-600 {
+  color: #a1a1aa !important; /* medium grey for descriptions */
 }
 
-.text-gradient-gold {
-  background: linear-gradient(135deg, #d4b878, #c9a961, #a8884a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-zinc-300, .text-zinc-200, .text-zinc-100 {
+  color: #f4f4f5 !important; /* warm white */
 }
 
-.bg-royal {
-  background:
-    radial-gradient(at 30% 0%, rgba(45, 90, 63, 0.15), transparent 50%),
-    radial-gradient(at 70% 100%, rgba(107, 68, 35, 0.12), transparent 50%),
-    linear-gradient(to bottom, #0a0908, #14110f);
+/* Force card and container backgrounds to obsidian black with gold borders */
+.bg-zinc-900, .bg-zinc-950, .bg-zinc-900\/40, .bg-zinc-950\/40, .bg-zinc-900\/60, .bg-zinc-950\/60, .bg-zinc-950\/80 {
+  background-color: #18181b !important; /* dark obsidian black for cards */
+  border-color: rgba(212, 175, 55, 0.15) !important; /* thin, sleek gold borders */
 }
 
-.bg-card {
-  background: linear-gradient(135deg, rgba(34, 29, 24, 0.6), rgba(20, 17, 15, 0.8));
-  border: 1px solid rgba(201, 169, 97, 0.12);
-  backdrop-filter: blur(10px);
+.bg-zinc-950\/20, .bg-zinc-900\/20 {
+  background-color: #09090b !important;
 }
 
-.bg-card-hover {
-  background: linear-gradient(135deg, rgba(45, 90, 63, 0.12), rgba(20, 17, 15, 0.9));
-  border: 1px solid rgba(201, 169, 97, 0.25);
+/* Navigation overrides */
+nav {
+  background-color: #09090b !important; /* black navbar */
+  border-color: rgba(212, 175, 55, 0.15) !important;
 }
 
-.border-gold {
-  border-color: rgba(201, 169, 97, 0.25) !important;
+nav button {
+  color: #e4e4e7 !important;
 }
 
-.border-gold-soft {
-  border-color: rgba(201, 169, 97, 0.15) !important;
+nav button:hover {
+  background-color: rgba(212, 175, 55, 0.1) !important;
+  color: #d4af37 !important;
 }
 
-.divider-gold {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.4), transparent);
+/* Input elements styling */
+input, select, textarea {
+  background-color: #09090b !important; /* black input fields */
+  color: #ffffff !important; /* white text inside inputs */
+  border: 1px solid rgba(212, 175, 55, 0.25) !important; /* gold-tinted border */
 }
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #0a0908;
-  background: linear-gradient(135deg, #c9a961, #a8884a);
-  border: 1px solid #c9a961;
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all 0.3s;
+input::placeholder, textarea::placeholder {
+  color: #71717a !important;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, #d4b878, #c9a961);
-  transform: translateY(-1px);
-  box-shadow: 0 0 30px rgba(201, 169, 97, 0.3);
+input:focus, select:focus, textarea:focus {
+  border-color: #d4af37 !important; /* gold focus border */
 }
 
-.btn-primary:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+/* Subheading backgrounds / Alert Banners - Translucent Gold with Gold/White Text */
+.bg-rose-500\/10, .bg-red-500\/10, .bg-amber-500\/10, .bg-amber-500\/5, .bg-red-500\/5, .bg-rose-500\/5 {
+  background-color: rgba(212, 175, 55, 0.08) !important; /* transparent gold background */
+  border: 1px solid rgba(212, 175, 55, 0.2) !important; /* translucent gold border */
 }
 
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--color-cream);
-  background: transparent;
-  border: 1px solid rgba(201, 169, 97, 0.4);
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all 0.3s;
+/* Ensure all text and icons inside translucent gold containers are white or gold */
+.bg-rose-500\/10 *, .bg-red-500\/10 *, .bg-amber-500\/10 *, .bg-amber-500\/5 *, .bg-red-500\/5 *, .bg-rose-500\/5 * {
+  color: #ffffff !important;
 }
 
-.btn-secondary:hover {
-  border-color: var(--color-gold);
-  background: rgba(201, 169, 97, 0.08);
+.bg-rose-500\/10 svg, .bg-red-500\/10 svg, .bg-amber-500\/10 svg, .bg-amber-500\/5 svg, .bg-red-500\/5 svg, .bg-rose-500\/5 svg {
+  stroke: #d4af37 !important;
 }
 
-.btn-ghost {
-  background: transparent;
-  border: none;
-  color: var(--color-text-dim);
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: color 0.3s;
+/* Standard Buttons - Prestigious Solid Gold with Black Text */
+.bg-gradient-to-r, button[type="submit"], .bg-amber-500, .bg-red-600 {
+  background-image: none !important;
+  background-color: #d4af37 !important; /* solid gold */
+  color: #09090b !important; /* deep black text */
+  border: none !important;
+  font-weight: 800 !important;
 }
 
-.btn-ghost:hover {
-  color: var(--color-gold);
+.bg-gradient-to-r *, button[type="submit"] *, .bg-amber-500 *, .bg-red-600 * {
+  color: #09090b !important; /* black text inside solid gold buttons */
 }
 
-.input-royal {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  background: rgba(20, 17, 15, 0.6);
-  border: 1px solid rgba(201, 169, 97, 0.2);
-  border-radius: 2px;
-  color: var(--color-cream);
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  transition: all 0.3s;
+.bg-gradient-to-r:hover, button[type="submit"]:hover, .bg-amber-500:hover, .bg-red-600:hover {
+  background-color: #f3cd5c !important; /* lighter gold on hover */
+  color: #09090b !important;
 }
 
-.input-royal:focus {
-  outline: none;
-  border-color: var(--color-gold);
-  background: rgba(20, 17, 15, 0.9);
-  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+/* Guidelines and secondary buttons */
+button.bg-zinc-800 {
+  background-color: #18181b !important; /* dark grey button */
+  color: #d4af37 !important; /* gold text */
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
 }
 
-.input-royal::placeholder {
-  color: var(--color-text-dim);
+button.bg-zinc-800:hover {
+  background-color: rgba(212, 175, 55, 0.1) !important;
+  color: #f3cd5c !important;
 }
 
-.label-royal {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-gold);
-  margin-bottom: 0.5rem;
+/* Chat boxes and special bubbles */
+.bg-rose-950\/30 {
+  background-color: rgba(212, 175, 55, 0.08) !important; /* translucent gold */
+  border-color: rgba(212, 175, 55, 0.2) !important;
 }
 
-.shimmer {
-  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.2), transparent) 0 0 / 200% 100%;
-  animation: shimmer 2s infinite;
+.bg-amber-500.text-black {
+  background-color: #d4af37 !important; /* solid gold */
+  color: #09090b !important; /* black text */
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+.bg-amber-500.text-black * {
+  color: #09090b !important;
 }
 
-.hero-overlay {
-  background: linear-gradient(to bottom, rgba(10, 9, 8, 0.4), rgba(10, 9, 8, 0.7) 60%, rgba(10, 9, 8, 0.95));
+/* QR Code and Modals */
+.bg-white {
+  background-color: #ffffff !important; /* keep QR background white for scanning */
 }
 
-.ornament-line {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--color-gold);
+.bg-white * {
+  color: #000000 !important; /* keep QR code black */
 }
 
-.ornament-line::before,
-.ornament-line::after {
-  content: '';
-  width: 40px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+/* Status Badges */
+.bg-emerald-500\/10 {
+  background-color: rgba(16, 185, 129, 0.12) !important; /* translucent green */
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+.bg-emerald-500\/10 * {
+  color: #34d399 !important; /* bright green text */
 }
 
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: 999px;
+.bg-rose-500\/10 {
+  background-color: rgba(212, 175, 55, 0.1) !important; /* translucent gold */
+}
+.bg-rose-500\/10 * {
+  color: #f3cd5c !important; /* light gold text */
 }
 
-.status-pending {
-  color: var(--color-gold);
-  background: rgba(201, 169, 97, 0.15);
-  border: 1px solid rgba(201, 169, 97, 0.3);
+.bg-amber-500\/10 {
+  background-color: rgba(212, 175, 55, 0.12) !important; /* translucent gold */
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+}
+.bg-amber-500\/10 * {
+  color: #f3cd5c !important; /* bright gold text */
 }
 
-.status-confirmed {
-  color: #3d7a57;
-  background: rgba(45, 90, 63, 0.2);
-  border: 1px solid rgba(45, 90, 63, 0.4);
+.bg-amber-500\/5 {
+  background-color: rgba(212, 175, 55, 0.06) !important;
 }
 
-.status-completed {
-  color: var(--color-success);
-  background: rgba(90, 138, 79, 0.2);
-  border: 1px solid rgba(90, 138, 79, 0.4);
+/* Ensure icons are colored gold */
+svg {
+  stroke: #d4af37 !important;
 }
 
-.status-cancelled {
-  color: var(--color-danger);
-  background: rgba(168, 66, 77, 0.2);
-  border: 1px solid rgba(168, 66, 77, 0.4);
+/* Except icons inside solid gold buttons */
+button.bg-gradient-to-r svg, button[type="submit"] svg, .bg-amber-500 svg, .bg-amber-500.text-black svg, .bg-red-600 svg {
+  stroke: #09090b !important;
 }
 
-.status-open {
-  color: var(--color-gold);
-  background: rgba(201, 169, 97, 0.15);
-  border: 1px solid rgba(201, 169, 97, 0.3);
+/* Age Gate text contrast */
+.bg-red-700 {
+  background-color: #d4af37 !important; /* gold banner */
+  color: #09090b !important; /* black text */
+}
+.bg-red-700 * {
+  color: #09090b !important;
+}
+.bg-red-700 svg {
+  stroke: #09090b !important;
 }
 
-.status-closed {
-  color: var(--color-text-dim);
-  background: rgba(139, 125, 107, 0.15);
-  border: 1px solid rgba(139, 125, 107, 0.3);
-}
-
-.status-new {
-  color: var(--color-danger);
-  background: rgba(168, 66, 77, 0.2);
-  border: 1px solid rgba(168, 66, 77, 0.4);
-}
-
-.status-resolved {
-  color: var(--color-success);
-  background: rgba(90, 138, 79, 0.2);
-  border: 1px solid rgba(90, 138, 79, 0.4);
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(201, 169, 97, 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(201, 169, 97, 0.5);
-}
-
-::selection {
-  background: rgba(201, 169, 97, 0.3);
-  color: var(--color-cream);
+/* Trust Badges - Force text to white on dark cards */
+.trust-badge-text {
+  color: #ffffff !important;
+  font-weight: 700 !important;
 }
