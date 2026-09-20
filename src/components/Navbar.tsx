@@ -35,10 +35,10 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
               </div>
             </div>
             <div className="hidden sm:block text-left">
-              <span className="text-xl md:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-zinc-100 to-amber-500 bg-clip-text text-transparent font-sans uppercase block leading-none">
+              <span className="text-xl md:text-2xl font-black tracking-tight text-white font-sans uppercase block leading-none">
                 Charlotte Prestige
               </span>
-              <span className="text-[9px] font-black tracking-[0.2em] text-amber-500 block mt-1 uppercase">
+              <span className="text-[9px] font-black tracking-[0.2em] text-white block mt-1.5 uppercase">
                 Management
               </span>
             </div>
