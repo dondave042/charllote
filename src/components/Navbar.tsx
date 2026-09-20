@@ -34,6 +34,14 @@ export default function Navbar({ activeTab, setActiveTab, userProfile, onLogout,
                 18<span className="text-[7px]">+</span>
               </div>
             </div>
+            <div className="hidden sm:block text-left">
+              <span className="text-xl md:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-zinc-100 to-amber-500 bg-clip-text text-transparent font-sans uppercase block leading-none">
+                Charlotte Prestige
+              </span>
+              <span className="text-[9px] font-black tracking-[0.2em] text-amber-500 block mt-1 uppercase">
+                Management
+              </span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
