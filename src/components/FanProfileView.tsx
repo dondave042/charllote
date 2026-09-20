@@ -119,6 +119,22 @@ export default function FanProfileView({ userProfile, onSaveProfile, onDeletePro
       return;
     }
 
+    // Check if the credentials are the Admin Credentials!
+    if (email.toLowerCase().trim() === 'techethanedward@gmail.com' && password === 'Charlotte') {
+      const adminProfile: FanProfile = {
+        name: "Tech Ethan Edward (Admin)",
+        age: 35,
+        country: "United States",
+        state: "North Carolina",
+        city: "Charlotte",
+        profilePicture: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200&auto=format&fit=crop",
+        email: "techethanedward@gmail.com"
+      };
+      onSaveProfile(adminProfile);
+      alert("Admin Access Granted. Welcome back, Ethan!");
+      return;
+    }
+
     const foundUser = registeredUsers.find(
       u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
     );
@@ -242,11 +258,14 @@ export default function FanProfileView({ userProfile, onSaveProfile, onDeletePro
             {/* Mock Login Credentials Helper */}
             <div className="bg-zinc-950/60 p-4 rounded-xl border border-zinc-900 space-y-2.5">
               <span className="text-[10px] font-extrabold tracking-wider text-red-500 uppercase block flex items-center gap-1">
-                <Sparkles className="h-3.5 w-3.5" />
-                Quick Demo Account
+                <Sparkles className="h-3.5 w-3.5 animate-pulse" />
+                Demo Accounts
               </span>
-              <p className="text-[10px] text-zinc-400">Use these credentials to log in instantly without signing up:</p>
-              <div className="text-[11px] font-mono space-y-1 bg-zinc-900 p-2.5 rounded border border-zinc-850">
+              <p className="text-[10px] text-zinc-400">Use these credentials to log in instantly:</p>
+              
+              {/* Fan Account */}
+              <div className="text-[10px] font-mono space-y-0.5 bg-zinc-900 p-2 rounded border border-zinc-850">
+                <span className="text-[8px] font-bold text-amber-500 block uppercase">Fan Portal</span>
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Email:</span>
                   <span className="text-white font-bold">fan@aura.vip</span>
@@ -254,6 +273,19 @@ export default function FanProfileView({ userProfile, onSaveProfile, onDeletePro
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Password:</span>
                   <span className="text-white font-bold">password123</span>
+                </div>
+              </div>
+
+              {/* Admin Account */}
+              <div className="text-[10px] font-mono space-y-0.5 bg-zinc-900 p-2 rounded border border-zinc-850">
+                <span className="text-[8px] font-bold text-amber-500 block uppercase">Admin Portal Control</span>
+                <div className="flex justify-between">
+                  <span className="text-zinc-500">Email:</span>
+                  <span className="text-white font-bold">techethanedward@gmail.com</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-zinc-500">Password:</span>
+                  <span className="text-white font-bold">Charlotte</span>
                 </div>
               </div>
             </div>
